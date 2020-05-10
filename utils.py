@@ -4,8 +4,11 @@ import numpy as np
 
 
 def save_parameters(name, value, epoch):
+    '''
+    comment code
+    '''
     filename = name.replace(':', '-colon-') + 1-epoch-11.txt'.format(epoch)
-    if len(value.shape) == 1: # is a list
+    if len(value.shape) == 1: # is a list   
         string_form = ','.join([str(number) for number in value])
     else:
         string_form = '\n'.join([','.join([str(number) for number in value[row]]) for row in range(value.shape[0])])
