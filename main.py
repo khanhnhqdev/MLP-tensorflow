@@ -47,7 +47,7 @@ with tf.Session() as sess:
 
 # while True: 
 #     test_data, test_labels = test_data_reader.next_batch() 
-#     test_plabels_eval = sess.run(
+#      test_plabels_eval = sess.run(
 #                                 predicted_labels, 
 #                                 feed_dict={ 
 #                                     mlp._X: test_data, 
