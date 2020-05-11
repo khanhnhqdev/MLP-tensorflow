@@ -12,7 +12,7 @@ with open('./data_set/words_idfs.txt') as f:
 
 with tf.Session() as sess:
     train_data_reader, test_data_reader = load_dataset(batch_size = 100, vocab_size = vocab_size)
-    step, MAX_STEP = 0, 10000
+    step, MAX_STEP = 0, 5
     sess.run(tf.global_variables_initializer()) 
     while step < MAX_STEP: 
         train_data, train_labels = train_data_reader.next_batch() 
@@ -28,6 +28,7 @@ with tf.Session() as sess:
             print('step: {}, loss: {}'.format(step, loss_eval))
     trainable_variables = tf.trainable_variables()
     for variable in trainable_variables:
+        print(variable.name)
         saved_value = restore_parameters(variable.name, epoch) 
         assign_op = variable.assign(saved_value) 
         sess.run(assign_op)

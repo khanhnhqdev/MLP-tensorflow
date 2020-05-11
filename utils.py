@@ -7,7 +7,7 @@ def save_parameters(name, value, epoch):
     '''
     comment code
     '''
-    filename = name.replace(':', '-colon-') + 1-epoch-11.txt'.format(epoch)
+    filename = name.replace(':', '-colon-') + '-epoch-{}.txt'.format(epoch)
     if len(value.shape) == 1: # is a list   
         string_form = ','.join([str(number) for number in value])
     else:
@@ -17,8 +17,8 @@ def save_parameters(name, value, epoch):
         f.write(string_form)
     
 def restore_parameters(name, epoch):
-    filename = name.replace(':', '-colon-') + '-epoch-11.txt'.format(epoch)
-    with open('../saved-paras/' + filename) as f:
+    filename = name.replace(':', '-colon-') + '-epoch-{}.txt'.format(epoch)
+    with open('./saved-paras/' + filename) as f:
         lines = f.read().splitlines()
     if len(lines) == 1: # is a vector
         value = [float(number) for number in lines[0].split(',')]
