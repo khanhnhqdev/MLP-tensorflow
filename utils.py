@@ -5,7 +5,8 @@ import numpy as np
 
 def save_parameters(name, value, epoch):
     '''
-    comment code
+    write value to filename
+    each row of value write to each row of file
     '''
     filename = name.replace(':', '-colon-') + '-epoch-{}.txt'.format(epoch)
     if len(value.shape) == 1: # is a list   
@@ -13,10 +14,13 @@ def save_parameters(name, value, epoch):
     else:
         string_form = '\n'.join([','.join([str(number) for number in value[row]]) for row in range(value.shape[0])])
 
-    with open('../saved-paras/' + filename, 'w') as f:
+    with open('./saved-paras/' + filename, 'w') as f:
         f.write(string_form)
     
 def restore_parameters(name, epoch):
+    '''
+    load parameters from filename 
+    '''
     filename = name.replace(':', '-colon-') + '-epoch-{}.txt'.format(epoch)
     with open('./saved-paras/' + filename) as f:
         lines = f.read().splitlines()
