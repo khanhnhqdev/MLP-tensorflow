@@ -1,5 +1,5 @@
-# Label document
-The process of label document: from raw data(text document), convert to tf-idf, then classify with SVM and K-mean
+# Mlp tensorflow
+This mini project aims to create a simple neural network by tensorflow to solve the document classification problem
 # How to run code: 
 use cmd: 
 ```
