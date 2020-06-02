@@ -14,7 +14,7 @@ with open('./data_set/words_idfs.txt') as f:
 	mlp = MLP( vocab_size=vocab_size, hidden_size=100, num_class=20) 
 	predicted_labels, loss = mlp.build_graph() 
 	train_op = mlp.trainer(loss=loss, learning_rate=0.1) 
-	train_data_reader, test_data_reader = load_dataset(batch_size = 128, vocab_size = vocab_size)
+	train_data_reader, test_data_reader = load_dataset(batch_size = 256, vocab_size = vocab_size)
 # open a session to run and write all parameter to txt file
 with tf.Session() as sess:
 	step, MAX_STEP = 0, 1000
